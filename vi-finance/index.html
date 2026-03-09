@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vi Consulting Finance — Educazione Finanziaria · Analisi · Corsi</title>
+<meta name="description" content="Vi Consulting Finance: educazione finanziaria, corsi, analisi di mercato e newsletter premium per investire con consapevolezza.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/blog.css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<style>
+:root {
+  --navy:      #0d1b2e;
+  --navy2:     #111f35;
+  --navy3:     #162640;
+  --navy-card: #14213a;
+  --gold:      #c9a84c;
+  --gold-lt:   #e2c06a;
+  --gold-dim:  rgba(201,168,76,0.1);
+  --sky:       #3b82c4;
+  --sky-lt:    #5fa3e0;
+  --sky-dim:   rgba(59,130,196,0.1);
+  --white:     #f0f4fa;
+  --cream:     #e8eef8;
+  --muted:     rgba(224,232,248,0.5);
+  --border:    rgba(201,168,76,0.12);
+  --border2:   rgba(255,255,255,0.06);
+  --text:      rgba(224,232,248,0.85);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;line-height:1.65;}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(59,130,196,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,196,0.02) 1px,transparent 1px);background-size:72px 72px;pointer-events:none;z-index:0;}
+section,nav,footer,#stats,#disclaimer{position:relative;z-index:1;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(28px);background:rgba(13,27,46,0.9);border-bottom:1px solid var(--border);transition:padding 0.3s;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;color:var(--white);text-decoration:none;display:flex;align-items:baseline;gap:5px;}
+.nav-logo .vi{color:var(--gold);font-style:italic;}
+.nav-logo .sep{color:rgba(201,168,76,0.4);margin:0 2px;}
+.nav-logo .rest{font-weight:400;font-size:0.95rem;opacity:0.75;letter-spacing:0.12em;font-family:'DM Sans',sans-serif;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;font-weight:400;}
+.nav-links a:hover{color:var(--gold-lt);}
+.nav-cta{font-family:'DM Sans',sans-serif;font-size:0.64rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:11px 26px;border-radius:3px;text-decoration:none;font-weight:600;transition:all 0.25s;box-shadow:0 4px 20px rgba(201,168,76,0.25);}
+.nav-cta:hover{background:var(--gold-lt);box-shadow:0 6px 28px rgba(201,168,76,0.4);transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{width:24px;height:1.5px;background:var(--white);display:block;transition:all 0.3s;}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 24px 100px;position:relative;overflow:hidden;}
+/* CSS-only hero background — no external images */
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(201,168,76,0.07) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 20% 80%,rgba(59,130,196,0.06) 0%,transparent 60%),radial-gradient(ellipse 40% 30% at 80% 20%,rgba(59,130,196,0.04) 0%,transparent 55%);pointer-events:none;z-index:0;}
+.hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;z-index:0;}
+.hero-diag{position:absolute;inset:0;pointer-events:none;z-index:0;background-image:repeating-linear-gradient(-45deg,transparent,transparent 80px,rgba(201,168,76,0.015) 80px,rgba(201,168,76,0.015) 81px);}
+.hero-vignette{position:absolute;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 40%,rgba(13,27,46,0.72) 100%);}
+.hero-grain{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:0.35;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");}
+.hero-line{position:absolute;width:1px;pointer-events:none;z-index:0;background:linear-gradient(180deg,transparent,rgba(201,168,76,0.12),transparent);}
+.hl1{height:55%;top:0;left:15%;}
+.hl2{height:40%;bottom:0;right:18%;}
+.hl3{height:30%;top:10%;right:35%;opacity:0.5;}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(201,168,76,0.25);background:rgba(201,168,76,0.07);border-radius:3px;padding:8px 20px;margin-bottom:32px;font-size:0.6rem;letter-spacing:0.38em;text-transform:uppercase;color:var(--gold-lt);animation:fadeUp 0.8s ease both;}
+.badge-dot{width:5px;height:5px;border-radius:50%;background:#3bdb82;box-shadow:0 0 8px #3bdb82;animation:blink 2.2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
+.hero-eyebrow{font-size:0.82rem;font-weight:400;letter-spacing:0.06em;color:var(--sky-lt);opacity:0.85;margin-bottom:14px;animation:fadeUp 0.9s 0.08s ease both;}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7.5vw,6rem);font-weight:700;line-height:1;letter-spacing:-0.01em;margin-bottom:6px;animation:fadeUp 1s 0.14s ease both;}
+.hero-title .t1{color:var(--cream);display:block;}
+.hero-title .t2{color:var(--gold);display:block;font-style:italic;font-weight:400;}
+.hero-divider{width:50px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:26px auto;animation:fadeUp 1s 0.22s ease both;}
+.hero-sub{font-size:clamp(0.92rem,2vw,1.05rem);color:var(--muted);max-width:560px;margin:0 auto 48px;line-height:1.8;animation:fadeUp 1s 0.28s ease both;font-weight:300;}
+.hero-sub strong{color:var(--white);font-weight:500;}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:fadeUp 1s 0.4s ease both;}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;font-size:0.65rem;letter-spacing:0.18em;font-weight:600;text-transform:uppercase;padding:16px 36px;border-radius:3px;text-decoration:none;background:var(--gold);color:var(--navy);box-shadow:0 6px 28px rgba(201,168,76,0.25);transition:all 0.3s;}
+.btn-gold:hover{background:var(--gold-lt);box-shadow:0 8px 40px rgba(201,168,76,0.4);transform:translateY(-2px);}
+.btn-outline{display:inline-flex;align-items:center;gap:10px;font-size:0.65rem;letter-spacing:0.18em;font-weight:600;text-transform:uppercase;padding:16px 36px;border-radius:3px;text-decoration:none;color:var(--white);border:1px solid rgba(224,232,248,0.22);transition:all 0.3s;backdrop-filter:blur(8px);}
+.btn-outline:hover{border-color:rgba(224,232,248,0.5);background:rgba(255,255,255,0.06);}
+.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;animation:fadeUp 1s 0.6s ease both;}
+.scroll-line{width:1px;height:46px;background:linear-gradient(180deg,var(--gold),transparent);animation:scrollPulse 2.5s ease-in-out infinite;}
+.scroll-txt{font-size:0.42rem;letter-spacing:0.4em;color:var(--gold);opacity:0.4;text-transform:uppercase;}
+
+/* PERCORSI */
+#percorsi{padding:100px 60px;background:var(--navy2);position:relative;}
+#percorsi::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(59,130,196,0.05) 0%,transparent 60%);pointer-events:none;}
+.percorsi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto;}
+.percorso-card{background:var(--navy-card);border:1px solid var(--border2);border-radius:6px;padding:38px 32px 34px;cursor:pointer;transition:all 0.35s;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:block;}
+.percorso-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;transition:background 0.35s;}
+.percorso-card.gold::before{background:var(--gold);}
+.percorso-card.sky::before{background:var(--sky);}
+.percorso-card.green::before{background:#3bdb82;}
+.percorso-card:hover{border-color:rgba(255,255,255,0.1);background:var(--navy3);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.3);}
+.pc-icon{font-size:2rem;margin-bottom:20px;display:block;}
+.pc-tag{display:inline-block;font-size:0.52rem;letter-spacing:0.3em;text-transform:uppercase;padding:4px 10px;border-radius:2px;margin-bottom:14px;font-weight:500;}
+.pc-tag.gold{background:var(--gold-dim);color:var(--gold-lt);}
+.pc-tag.sky{background:var(--sky-dim);color:var(--sky-lt);}
+.pc-tag.green{background:rgba(59,219,130,0.08);color:#3bdb82;}
+.pc-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:600;margin-bottom:12px;color:var(--white);line-height:1.25;}
+.pc-desc{font-size:0.82rem;color:var(--muted);line-height:1.7;margin-bottom:22px;}
+.pc-cta{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:gap 0.2s;}
+.pc-cta.gold{color:var(--gold);}
+.pc-cta.sky{color:var(--sky-lt);}
+.pc-cta.green{color:#3bdb82;}
+.percorso-card:hover .pc-cta{gap:14px;}
+
+/* STATS */
+#stats{padding:70px 60px;background:var(--navy);}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);max-width:1000px;margin:0 auto;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.stat-cell{background:var(--navy2);padding:36px 28px;text-align:center;transition:background 0.3s;}
+.stat-cell:hover{background:var(--navy3);}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:600;line-height:1;margin-bottom:10px;}
+.stat-label{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
+
+/* SERVIZI */
+#servizi{padding:120px 60px;}
+.sec-header{text-align:center;margin-bottom:72px;}
+.sec-eyebrow{font-size:0.7rem;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--sky-lt);opacity:0.75;margin-bottom:14px;display:block;}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.6rem);font-weight:600;line-height:1.1;margin-bottom:16px;color:var(--white);}
+.sec-sub{font-size:0.9rem;color:var(--muted);max-width:500px;margin:0 auto;line-height:1.8;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1100px;margin:0 auto 16px;}
+.services-grid-bottom{display:grid;grid-template-columns:1fr;gap:16px;max-width:1100px;margin:0 auto;}
+.svc-card{background:var(--navy-card);border:1px solid var(--border2);border-radius:6px;padding:40px 34px 36px;position:relative;overflow:hidden;transition:all 0.3s;}
+.svc-card:hover{border-color:rgba(201,168,76,0.18);background:var(--navy3);box-shadow:0 12px 40px rgba(0,0,0,0.25);transform:translateY(-3px);}
+.svc-card.featured{border-color:rgba(201,168,76,0.2);background:linear-gradient(135deg,var(--navy3) 0%,#182e50 100%);}
+.svc-card.featured:hover{border-color:rgba(201,168,76,0.35);}
+.svc-featured-tag{display:inline-block;background:var(--gold-dim);border:1px solid rgba(201,168,76,0.2);color:var(--gold);font-size:0.5rem;letter-spacing:0.3em;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:20px;font-weight:600;}
+.svc-num{font-size:0.6rem;letter-spacing:0.28em;color:var(--gold);opacity:0.3;margin-bottom:22px;font-weight:500;}
+.svc-icon{width:46px;height:46px;margin-bottom:20px;border:1px solid rgba(201,168,76,0.15);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;background:var(--gold-dim);transition:all 0.3s;}
+.svc-card:hover .svc-icon{background:rgba(201,168,76,0.15);border-color:rgba(201,168,76,0.3);}
+.svc-title{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:600;line-height:1.2;margin-bottom:12px;color:var(--white);}
+.svc-desc{font-size:0.82rem;color:var(--muted);line-height:1.75;margin-bottom:24px;}
+.svc-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.svc-list li{display:flex;align-items:flex-start;gap:10px;font-size:0.78rem;color:rgba(224,232,248,0.48);line-height:1.4;}
+.svc-list li::before{content:'✦';color:var(--gold);opacity:0.45;flex-shrink:0;font-size:0.5rem;margin-top:3px;}
+
+/* FEATURED svc layout per educazione */
+.svc-featured-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+@media(max-width:768px){.svc-featured-inner{grid-template-columns:1fr;}}
+
+/* BLOG */
+#blog{padding:120px 60px;background:var(--navy2);position:relative;}
+#blog::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);}
+.blog-header{display:flex;align-items:flex-end;justify-content:space-between;max-width:1100px;margin:0 auto 60px;flex-wrap:wrap;gap:20px;}
+.blog-see-all{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid rgba(201,168,76,0.3);padding-bottom:3px;transition:all 0.2s;white-space:nowrap;}
+.blog-see-all:hover{gap:14px;border-color:var(--gold);}
+.blog-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:20px;max-width:1100px;margin:0 auto;}
+
+/* Blog cards */
+.blog-card{background:var(--navy-card);border:1px solid var(--border2);border-radius:6px;overflow:hidden;transition:all 0.3s;cursor:pointer;text-decoration:none;color:inherit;display:flex;flex-direction:column;}
+.blog-card:hover{border-color:rgba(224,232,248,0.12);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3);}
+.blog-img{width:100%;aspect-ratio:16/9;background:var(--navy3);overflow:hidden;position:relative;}
+.blog-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;}
+.blog-card:hover .blog-img img{transform:scale(1.04);}
+.blog-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:linear-gradient(135deg,var(--navy3),#1e3562);}
+.blog-body{padding:26px 26px 24px;flex:1;display:flex;flex-direction:column;}
+.blog-category{font-size:0.52rem;letter-spacing:0.3em;text-transform:uppercase;font-weight:600;margin-bottom:10px;display:inline-block;}
+.blog-category.gold{color:var(--gold);}
+.blog-category.sky{color:var(--sky-lt);}
+.blog-category.green{color:#3bdb82;}
+.blog-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;line-height:1.35;color:var(--white);margin-bottom:10px;flex:1;}
+.blog-card.main .blog-title{font-size:1.4rem;}
+.blog-excerpt{font-size:0.8rem;color:var(--muted);line-height:1.65;margin-bottom:18px;}
+.blog-meta{display:flex;align-items:center;gap:14px;font-size:0.66rem;color:rgba(224,232,248,0.3);letter-spacing:0.04em;border-top:1px solid var(--border2);padding-top:14px;margin-top:auto;flex-wrap:wrap;}
+.blog-tag{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:2px;font-size:0.52rem;letter-spacing:0.2em;text-transform:uppercase;background:rgba(255,255,255,0.04);border:1px solid var(--border2);color:rgba(224,232,248,0.4);}
+.blog-pro-badge{font-size:0.5rem;letter-spacing:0.25em;text-transform:uppercase;background:var(--gold-dim);border:1px solid rgba(201,168,76,0.2);color:var(--gold);padding:3px 10px;border-radius:2px;font-weight:600;display:inline-flex;align-items:center;gap:5px;}
+
+/* PREMIUM */
+#premium{padding:120px 60px;background:var(--navy);position:relative;overflow:hidden;}
+#premium::before{content:'';position:absolute;width:900px;height:900px;background:radial-gradient(circle,rgba(59,130,196,0.04) 0%,transparent 65%);top:-300px;right:-300px;pointer-events:none;}
+.premium-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;}
+.premium-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(59,219,130,0.25);background:rgba(59,219,130,0.06);border-radius:3px;padding:6px 14px;margin-bottom:26px;font-size:0.55rem;letter-spacing:0.32em;text-transform:uppercase;color:#3bdb82;}
+.premium-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:600;line-height:1.15;margin-bottom:16px;color:var(--white);}
+.premium-title em{font-style:italic;color:var(--gold);}
+.premium-desc{font-size:0.86rem;color:var(--muted);line-height:1.8;margin-bottom:30px;}
+.premium-features{list-style:none;display:flex;flex-direction:column;gap:16px;margin-bottom:34px;}
+.pf-item{display:flex;align-items:flex-start;gap:14px;}
+.pf-icon{width:34px;height:34px;flex-shrink:0;background:var(--gold-dim);border:1px solid rgba(201,168,76,0.15);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;}
+.pf-body h5{font-size:0.82rem;font-weight:500;margin-bottom:3px;color:var(--white);}
+.pf-body p{font-size:0.76rem;color:var(--muted);line-height:1.55;}
+.premium-right{border:1px solid rgba(201,168,76,0.15);background:var(--navy-card);border-radius:8px;padding:44px 38px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.pr-corner{position:absolute;width:18px;height:18px;border-color:var(--gold);border-style:solid;opacity:0.25;}
+.pr-tl{top:12px;left:12px;border-width:1px 0 0 1px;}
+.pr-tr{top:12px;right:12px;border-width:1px 1px 0 0;}
+.pr-bl{bottom:12px;left:12px;border-width:0 0 1px 1px;}
+.pr-br{bottom:12px;right:12px;border-width:0 1px 1px 0;}
+.pr-label{font-size:0.65rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:8px;}
+.pr-title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:600;margin-bottom:20px;line-height:1.2;color:var(--white);}
+.pr-divider{width:100%;height:1px;background:linear-gradient(90deg,rgba(201,168,76,0.25),transparent);margin:20px 0;}
+.pr-soon{display:flex;align-items:center;gap:10px;padding:13px 16px;background:rgba(59,219,130,0.05);border:1px solid rgba(59,219,130,0.15);border-radius:4px;margin-bottom:22px;font-size:0.78rem;color:#3bdb82;}
+.pr-form-label{font-size:0.72rem;color:var(--muted);margin-bottom:12px;}
+.pr-input-row{display:flex;gap:0;border-radius:3px;overflow:hidden;}
+.pr-input{flex:1;background:rgba(255,255,255,0.05);border:1px solid var(--border2);border-right:none;color:var(--white);padding:13px 16px;font-family:'DM Sans',sans-serif;font-size:0.82rem;outline:none;transition:border-color 0.2s;}
+.pr-input::placeholder{color:rgba(255,255,255,0.2);}
+.pr-input:focus{border-color:rgba(201,168,76,0.3);}
+.pr-submit{background:var(--gold);color:var(--navy);border:none;padding:13px 22px;font-family:'DM Sans',sans-serif;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+.pr-submit:hover{background:var(--gold-lt);}
+.pr-note{font-size:0.68rem;color:rgba(255,255,255,0.2);margin-top:10px;}
+
+/* APPROCCIO */
+#approccio{padding:120px 60px;background:var(--navy2);}
+.approccio-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;gap:90px;align-items:start;}
+.approccio-steps{display:flex;flex-direction:column;}
+.a-step{display:flex;gap:22px;align-items:flex-start;padding:28px 0;border-bottom:1px solid var(--border2);}
+.a-step:first-child{padding-top:0;}
+.a-step:last-child{border-bottom:none;}
+.a-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:var(--gold);opacity:0.2;line-height:1;flex-shrink:0;width:40px;}
+.a-body h4{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;margin-bottom:8px;color:var(--white);}
+.a-body p{font-size:0.8rem;color:var(--muted);line-height:1.65;}
+.approccio-quote{border-left:2px solid var(--gold);padding-left:30px;opacity:0.65;position:sticky;top:120px;}
+.aq-text{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,2.8vw,1.9rem);font-weight:400;font-style:italic;line-height:1.55;color:var(--cream);margin-bottom:20px;}
+.aq-author{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);}
+
+/* SOCIAL PROOF */
+#socialproof{padding:90px 60px;background:var(--navy);border-top:1px solid var(--border);}
+.proof-inner{max-width:1100px;margin:0 auto;}
+.proof-header{text-align:center;margin-bottom:56px;}
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px;}
+.testi-card{background:var(--navy-card);border:1px solid var(--border2);border-radius:6px;padding:32px 28px;}
+.testi-stars{color:var(--gold);font-size:0.75rem;letter-spacing:3px;margin-bottom:14px;}
+.testi-text{font-size:0.84rem;color:var(--text);line-height:1.72;margin-bottom:20px;font-style:italic;}
+.testi-author{display:flex;align-items:center;gap:12px;}
+.testi-avatar{width:38px;height:38px;border-radius:50%;background:var(--navy3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:var(--gold);font-weight:600;font-family:'Playfair Display',serif;}
+.testi-name{font-size:0.8rem;font-weight:500;color:var(--white);}
+.testi-role{font-size:0.68rem;color:var(--muted);}
+.disclaimer-strip{text-align:center;font-size:0.7rem;color:rgba(224,232,248,0.25);line-height:1.6;max-width:700px;margin:0 auto;}
+
+/* DISCLAIMER */
+#disclaimer{padding:36px 60px;background:rgba(13,27,46,0.95);border-top:1px solid rgba(201,168,76,0.06);}
+.disclaimer-inner{max-width:960px;margin:0 auto;display:flex;gap:18px;align-items:flex-start;}
+.disc-icon{font-size:0.9rem;flex-shrink:0;opacity:0.4;margin-top:2px;}
+.disc-text{font-size:0.7rem;color:rgba(224,232,248,0.28);line-height:1.7;}
+.disc-text strong{color:rgba(224,232,248,0.42);}
+
+/* CONTATTI */
+#contatti{padding:120px 60px;background:var(--navy2);text-align:center;position:relative;overflow:hidden;}
+#contatti::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(59,130,196,0.05) 0%,transparent 65%);bottom:-200px;left:50%;transform:translateX(-50%);pointer-events:none;}
+.contatti-inner{max-width:600px;margin:0 auto;position:relative;}
+.wa-btn{display:inline-flex;align-items:center;gap:14px;font-size:0.68rem;letter-spacing:0.16em;font-weight:700;text-transform:uppercase;padding:20px 46px;border-radius:4px;text-decoration:none;background:linear-gradient(135deg,#25d366,#1aaa54);color:#fff;box-shadow:0 6px 32px rgba(37,211,102,0.25);transition:all 0.3s;margin-bottom:24px;}
+.wa-btn:hover{transform:translateY(-3px);box-shadow:0 10px 48px rgba(37,211,102,0.38);}
+.wa-btn svg{width:20px;height:20px;fill:white;}
+.cont-note{font-size:0.73rem;color:rgba(255,255,255,0.22);margin-bottom:28px;letter-spacing:0.04em;}
+.cont-divider{width:36px;height:1px;background:var(--border);margin:0 auto 26px;}
+.cont-socials{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:8px;flex-wrap:wrap;}
+.cont-social-link{display:inline-flex;align-items:center;gap:8px;font-size:0.72rem;color:var(--muted);text-decoration:none;padding:8px 16px;border:1px solid var(--border2);border-radius:3px;transition:all 0.2s;}
+.cont-social-link:hover{color:var(--gold);border-color:rgba(201,168,76,0.25);background:var(--gold-dim);}
+.cont-social-link svg{width:14px;height:14px;fill:currentColor;}
+
+/* FOOTER */
+footer{padding:60px 60px 36px;border-top:1px solid var(--border);background:var(--navy);}
+.footer-top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:60px;max-width:1100px;margin:0 auto;padding-bottom:50px;border-bottom:1px solid var(--border2);}
+.f-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;color:var(--white);display:block;margin-bottom:12px;text-decoration:none;}
+.f-logo .vi{color:var(--gold);font-style:italic;}
+.f-tagline{font-size:0.8rem;color:var(--muted);line-height:1.7;max-width:230px;margin-bottom:22px;}
+.f-socials{display:flex;gap:8px;}
+.f-social{width:34px;height:34px;border:1px solid var(--border2);border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;transition:all 0.2s;}
+.f-social:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-dim);}
+.f-social svg{width:13px;height:13px;fill:currentColor;}
+.f-col h5{font-size:0.52rem;letter-spacing:0.32em;text-transform:uppercase;color:rgba(224,232,248,0.35);margin-bottom:18px;font-weight:500;}
+.f-col ul{list-style:none;}
+.f-col ul li{margin-bottom:10px;}
+.f-col ul li a,.f-col ul li span{font-size:0.8rem;color:rgba(224,232,248,0.35);text-decoration:none;transition:color 0.2s;}
+.f-col ul li a:hover{color:var(--gold-lt);}
+.footer-bottom{max-width:1100px;margin:28px auto 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.f-copy{font-size:0.57rem;letter-spacing:0.16em;color:rgba(255,255,255,0.14);}
+.f-piva{font-size:0.7rem;color:rgba(255,255,255,0.14);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scrollPulse{0%,100%{opacity:0.3}50%{opacity:1}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.rd1{transition-delay:0.1s}.rd2{transition-delay:0.2s}.rd3{transition-delay:0.32s}.rd4{transition-delay:0.44s}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  nav{padding:16px 28px;}
+  .nav-links,.nav-cta{display:none;}
+  .hamburger{display:flex;}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(13,27,46,0.98);padding:24px 28px;gap:20px;border-bottom:1px solid var(--border);backdrop-filter:blur(20px);}
+  #hero,#percorsi,#servizi,#blog,#premium,#approccio,#socialproof,#contatti{padding-left:28px;padding-right:28px;}
+  #stats,#disclaimer{padding-left:28px;padding-right:28px;}
+  footer{padding:50px 28px 30px;}
+  .percorsi-grid,.services-grid,.stats-grid,.testimonials,.blog-grid{grid-template-columns:1fr;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .services-grid-bottom,.premium-inner,.approccio-inner,.footer-top{grid-template-columns:1fr;}
+  .approccio-quote{position:static;}
+  .blog-grid{grid-template-columns:1fr;}
+  .blog-header{flex-direction:column;align-items:flex-start;}
+  .pr-input-row{flex-direction:column;}
+  .pr-input{border-right:1px solid var(--border2);}
+  .svc-featured-inner{grid-template-columns:1fr;}
+}
+@media(max-width:500px){
+  .hero-ctas{flex-direction:column;align-items:center;}
+  .footer-top{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="/" class="nav-logo">
+    <span class="vi">Vi</span><span class="sep">·</span><span class="rest">Consulting Finance</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#percorsi">Inizia da qui</a></li>
+    <li><a href="#servizi">Servizi</a></li>
+    <li><a href="/blog" id="nav-blog">Blog</a></li>
+    <li><a href="#premium">Newsletter Pro</a></li>
+    <li><a href="#contatti">Contatti</a></li>
+  </ul>
+  <a href="#premium" class="nav-cta">Accesso Early Access →</a>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT WRAPPER (homepage o blog) -->
+<div id="app-content">
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-diag"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-line hl1"></div>
+  <div class="hero-line hl2"></div>
+  <div class="hero-line hl3"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-badge"><span class="badge-dot"></span>Educazione Finanziaria · Analisi · Corsi · Newsletter Pro</div>
+  <div class="hero-eyebrow">Vi Consulting Finance</div>
+  <h1 class="hero-title">
+    <span class="t1">Capire il denaro</span>
+    <span class="t2">cambia tutto.</span>
+  </h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">Non bastano i soldi — serve <strong>sapere come farli lavorare</strong>. Vi Consulting Finance ti dà gli strumenti, le conoscenze e l'analisi per prendere decisioni finanziarie più consapevoli.</p>
+  <div class="hero-ctas">
+    <a href="#percorsi" class="btn-gold">Scegli il tuo percorso →</a>
+    <a href="/blog" class="btn-outline" id="hero-blog-btn">Leggi gratis il Blog</a>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span class="scroll-txt">Scorri</span></div>
+</section>
+
+<!-- PERCORSI -->
+<section id="percorsi">
+  <div style="text-align:center;margin-bottom:60px;">
+    <span class="sec-eyebrow reveal">Inizia da qui</span>
+    <h2 class="sec-title reveal">Da dove parti?</h2>
+    <p class="sec-sub reveal">Scegli il percorso più adatto alla tua situazione. Ti guidiamo noi.</p>
+  </div>
+  <div class="percorsi-grid">
+    <a href="/blog" class="percorso-card gold reveal rd1" id="percorso-blog">
+      <span class="pc-icon">🌱</span>
+      <span class="pc-tag gold">Principiante</span>
+      <h3 class="pc-title">Parto da zero.<br>Come funziona la finanza?</h3>
+      <p class="pc-desc">Non hai mai investito e vorresti capire le basi — inflazione, tassi, ETF, obbligazioni. Inizia dal blog gratuito: articoli scritti senza gergo tecnico.</p>
+      <span class="pc-cta gold">Leggi gli articoli base →</span>
+    </a>
+    <a href="#premium" class="percorso-card sky reveal rd2">
+      <span class="pc-icon">📈</span>
+      <span class="pc-tag sky">Intermedio</span>
+      <h3 class="pc-title">So le basi ma voglio<br>andare più in profondità.</h3>
+      <p class="pc-desc">Conosci già qualche concetto ma vuoi analisi di mercato, approfondimenti su settori specifici e contenuti più avanzati. La newsletter Pro fa per te.</p>
+      <span class="pc-cta sky">Scopri la Newsletter Pro →</span>
+    </a>
+    <a href="https://wa.me/17144193670?text=Ciao%20Vi%20Consulting%20Finance!%20Vorrei%20sapere%20di%20pi%C3%B9%20sui%20corsi%20disponibili." class="percorso-card green reveal rd3" target="_blank" rel="noopener">
+      <span class="pc-icon">🎓</span>
+      <span class="pc-tag green">Formazione</span>
+      <h3 class="pc-title">Voglio un corso strutturato<br>per imparare davvero.</h3>
+      <p class="pc-desc">Preferisci un percorso guidato, con moduli progressivi e supporto diretto. I nostri corsi di educazione finanziaria sono progettati per chi vuole risultati concreti.</p>
+      <span class="pc-cta green">Scopri i corsi →</span>
+    </a>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat-cell reveal"><div class="stat-num" style="color:var(--gold);">15+</div><div class="stat-label">Fonti premium analizzate</div></div>
+    <div class="stat-cell reveal rd1"><div class="stat-num" style="color:var(--sky-lt);">Weekly</div><div class="stat-label">Newsletter e analisi</div></div>
+    <div class="stat-cell reveal rd2"><div class="stat-num" style="color:var(--gold);">100%</div><div class="stat-label">Contenuto originale e curato</div></div>
+    <div class="stat-cell reveal rd3"><div class="stat-num" style="color:#3bdb82;">PRO</div><div class="stat-label">Accesso riservato iscritti</div></div>
+  </div>
+</section>
+
+<!-- SERVIZI -->
+<section id="servizi">
+  <div class="sec-header">
+    <span class="sec-eyebrow reveal">I nostri servizi</span>
+    <h2 class="sec-title reveal">Tutto ciò di cui hai bisogno<br>per investire con consapevolezza.</h2>
+    <p class="sec-sub reveal">Dall'educazione di base all'analisi avanzata: un ecosistema completo pensato per chi vuole imparare davvero.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card reveal rd1">
+      <div class="svc-num">01 ——</div>
+      <div class="svc-icon">📊</div>
+      <h3 class="svc-title" style="color:var(--gold);">Analisi Finanziaria</h3>
+      <p class="svc-desc">Analisi approfondite dei principali mercati globali, asset class e strumenti finanziari. Dati trasformati in lettura chiara e azionabile.</p>
+      <ul class="svc-list">
+        <li>Analisi settimanale dei mercati azionari</li>
+        <li>Monitoraggio macro: tassi, inflazione, valute</li>
+        <li>Settori in crescita e opportunità emergenti</li>
+        <li>Analisi tecnica e fondamentale combinata</li>
+      </ul>
+    </div>
+    <div class="svc-card reveal rd2">
+      <div class="svc-num">02 ——</div>
+      <div class="svc-icon">🔍</div>
+      <h3 class="svc-title" style="color:var(--sky-lt);">Insight Avanzati</h3>
+      <p class="svc-desc">Accesso a informazioni selezionate da fonti premium internazionali — sintetizzate, tradotte e rese accessibili senza perdere profondità.</p>
+      <ul class="svc-list">
+        <li>Selezione da 15+ fonti premium internazionali</li>
+        <li>Bloomberg, Reuters, WSJ — sintetizzati</li>
+        <li>Report istituzionali semplificati</li>
+        <li>Sentiment analysis e segnali di mercato</li>
+      </ul>
+    </div>
+    <div class="svc-card reveal rd3">
+      <div class="svc-num">03 ——</div>
+      <div class="svc-icon">✉️</div>
+      <h3 class="svc-title" style="color:var(--white);">Newsletter Premium</h3>
+      <p class="svc-desc">Una newsletter riservata, ogni settimana, con tutto quello che serve per restare sempre aggiornato sui mercati.</p>
+      <ul class="svc-list">
+        <li>Solo per iscritti Premium</li>
+        <li>Panoramica mercati della settimana</li>
+        <li>1 tema approfondito ogni numero</li>
+        <li>Accesso futuro ad area riservata</li>
+      </ul>
+    </div>
+  </div>
+  <!-- EDUCAZIONE FINANZIARIA — card featured unica a tutta larghezza -->
+  <div class="services-grid-bottom">
+    <div class="svc-card featured reveal" style="margin-top:0;">
+      <div class="svc-featured-tag">⭐ Core Service — Il nostro pilastro</div>
+      <div class="svc-featured-inner">
+        <div>
+          <div class="svc-num">04 ——</div>
+          <div class="svc-icon" style="font-size:1.6rem;width:54px;height:54px;">🎓</div>
+          <h3 class="svc-title" style="color:var(--gold);font-size:1.7rem;">Educazione<br>Finanziaria</h3>
+          <p class="svc-desc" style="font-size:0.88rem;">Il cuore di Vi Consulting Finance. Crediamo che la vera libertà finanziaria parta dalla conoscenza. Articoli gratuiti sul blog, approfondimenti Pro nella newsletter e presto contenuti video e guide scaricabili.</p>
+          <ul class="svc-list">
+            <li>Blog gratuito con articoli per tutti i livelli</li>
+            <li>Glossario finanziario completo</li>
+            <li>Guide pratiche: ETF, obbligazioni, fiscalità</li>
+            <li>Contenuti video e risorse scaricabili (in arrivo)</li>
+          </ul>
+        </div>
+        <div>
+          <div class="svc-num">05 ——</div>
+          <div class="svc-icon" style="font-size:1.6rem;width:54px;height:54px;">📚</div>
+          <h3 class="svc-title" style="color:var(--sky-lt);font-size:1.7rem;">Corsi di Educazione<br>Finanziaria</h3>
+          <p class="svc-desc" style="font-size:0.88rem;">Percorsi di apprendimento strutturati, da zero alla padronanza. Moduli progressivi con esempi pratici, casi reali e supporto diretto.</p>
+          <ul class="svc-list">
+            <li>Corso base: finanza personale e risparmio</li>
+            <li>Corso intermedio: investimenti ed ETF</li>
+            <li>Corso avanzato: analisi di mercato e macro</li>
+            <li>Supporto diretto + community esclusiva</li>
+          </ul>
+          <a href="https://wa.me/17144193670?text=Ciao!%20Vorrei%20informazioni%20sui%20corsi%20di%20educazione%20finanziaria." target="_blank" rel="noopener" class="btn-gold" style="margin-top:24px;display:inline-flex;font-size:0.62rem;">Scopri i corsi →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG PREVIEW -->
+<section id="blog">
+  <div class="blog-header">
+    <div>
+      <span class="sec-eyebrow reveal" style="text-align:left;">Risorse gratuite</span>
+      <h2 class="sec-title reveal" style="text-align:left;margin-bottom:8px;">Il Blog — Leggi, impara,<br>investì meglio.</h2>
+      <p style="font-size:0.86rem;color:var(--muted);max-width:480px;" class="reveal">Articoli gratuiti pubblicati regolarmente. I contenuti 🔒 PRO sono riservati agli iscritti Premium.</p>
+    </div>
+    <a href="/blog" class="blog-see-all reveal rd2" id="all-articles-btn">Tutti gli articoli →</a>
+  </div>
+  <div class="blog-grid" id="blog-grid-home">
+    <div style="color:rgba(224,232,248,0.3);text-align:center;padding:60px;grid-column:1/-1;">Caricamento articoli...</div>
+  </div>
+</section>
+
+<!-- PREMIUM -->
+<section id="premium">
+  <div class="premium-inner">
+    <div class="premium-left reveal">
+      <div class="premium-tag"><span style="width:6px;height:6px;border-radius:50%;background:#3bdb82;display:inline-block;"></span>Early Access — Posti Limitati</div>
+      <h2 class="premium-title">La newsletter<br>che ti insegna a<br><em>leggere i mercati.</em></h2>
+      <p class="premium-desc">Ogni settimana selezioniamo, sintetizziamo e spieghiamo le informazioni più rilevanti dai principali media finanziari del mondo. Non solo notizie — ti insegniamo a interpretarle.</p>
+      <ul class="premium-features">
+        <li class="pf-item"><div class="pf-icon">📰</div><div class="pf-body"><h5>Fonti che costano migliaia di euro l'anno</h5><p>Bloomberg, Reuters, Morningstar, WSJ. Li leggiamo per te e ti diamo ciò che conta davvero.</p></div></li>
+        <li class="pf-item"><div class="pf-icon">🎓</div><div class="pf-body"><h5>Impari ogni settimana, non solo leggi</h5><p>Ogni numero spiega un concetto chiave: capire è meglio che informarsi senza imparare.</p></div></li>
+        <li class="pf-item"><div class="pf-icon">🔒</div><div class="pf-body"><h5>Accesso esclusivo e riservato</h5><p>Un servizio premium per chi vuole un vantaggio educativo e informativo reale.</p></div></li>
+      </ul>
+    </div>
+    <div class="premium-right reveal rd2">
+      <div class="pr-corner pr-tl"></div><div class="pr-corner pr-tr"></div><div class="pr-corner pr-bl"></div><div class="pr-corner pr-br"></div>
+      <div class="pr-label">Accesso Early Access</div>
+      <div class="pr-title">Entra nella<br>lista d'attesa.</div>
+      <div class="pr-soon"><span>🚀</span><span>Lancio imminente — i primi iscritti riceveranno condizioni speciali.</span></div>
+      <div class="pr-divider"></div>
+      <div class="pr-form-label">Inserisci la tua email per essere avvisato al lancio:</div>
+      <div class="pr-input-row">
+        <input type="email" class="pr-input" placeholder="la-tua@email.com" id="emailInput">
+        <button class="pr-submit" onclick="handleSubmit()">Iscrivimi →</button>
+      </div>
+      <div class="pr-note" id="pr-msg">* Nessuno spam. Solo la tua email per avvisarti al lancio.</div>
+      <div class="pr-divider"></div>
+      <p style="font-size:0.74rem;color:var(--muted);line-height:1.6;">Preferisci parlare direttamente con noi?</p>
+      <a href="https://wa.me/17144193670?text=Ciao%20Vi%20Consulting%20Finance!%20Vorrei%20maggiori%20informazioni%20sulla%20newsletter%20premium." target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:10px;color:#3bdb82;font-size:0.76rem;text-decoration:none;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Scrivici su WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- APPROCCIO -->
+<section id="approccio">
+  <div class="approccio-inner">
+    <div class="approccio-left">
+      <div class="sec-eyebrow reveal" style="text-align:left;">Il nostro metodo</div>
+      <h2 class="sec-title reveal" style="text-align:left;font-size:clamp(1.8rem,4vw,3rem);margin-bottom:40px;">Come trasformiamo<br>l'informazione in conoscenza.</h2>
+      <div class="approccio-steps">
+        <div class="a-step reveal rd1"><div class="a-num">01</div><div class="a-body"><h4>Selezione delle fonti</h4><p>Monitoriamo quotidianamente oltre 15 fonti premium internazionali: Bloomberg, Reuters, Wall Street Journal, report istituzionali e analisi di settore.</p></div></div>
+        <div class="a-step reveal rd2"><div class="a-num">02</div><div class="a-body"><h4>Analisi e sintesi</h4><p>Ogni informazione viene valutata e sintetizzata. Eliminiamo il rumore di fondo e teniamo solo ciò che ha rilevanza concreta per chi vuole imparare.</p></div></div>
+        <div class="a-step reveal rd3"><div class="a-num">03</div><div class="a-body"><h4>Traduzione in linguaggio educativo</h4><p>Concetti complessi vengono resi comprensibili senza perdere profondità. L'obiettivo non è informarti — è farti capire davvero, così che tu possa agire in autonomia.</p></div></div>
+        <div class="a-step reveal rd4"><div class="a-num">04</div><div class="a-body"><h4>Contenuto per ogni livello</h4><p>Blog gratuito per tutti, newsletter Pro per chi vuole approfondire, corsi strutturati per chi cerca un percorso completo. Ognuno trova il proprio spazio.</p></div></div>
+      </div>
+    </div>
+    <div class="approccio-quote reveal rd2">
+      <div class="aq-text">"Un investimento nella conoscenza paga sempre il miglior interesse."</div>
+      <div class="aq-author">— Benjamin Franklin</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section id="socialproof">
+  <div class="proof-inner">
+    <div class="proof-header">
+      <span class="sec-eyebrow reveal">Chi ci segue dice</span>
+      <h2 class="sec-title reveal">La conoscenza fa la differenza.</h2>
+    </div>
+    <div class="testimonials">
+      <div class="testi-card reveal rd1"><div class="testi-stars">★★★★★</div><p class="testi-text">"Finalmente qualcuno che spiega la finanza senza presupporre che tu sappia già tutto. Ogni articolo mi ha insegnato qualcosa di concreto e applicabile."</p><div class="testi-author"><div class="testi-avatar">MC</div><div><div class="testi-name">Marco C.</div><div class="testi-role">Imprenditore, Milano</div></div></div></div>
+      <div class="testi-card reveal rd2"><div class="testi-stars">★★★★★</div><p class="testi-text">"Ho imparato più in due mesi di newsletter che in anni di lettura casuale di notizie finanziarie. Il metodo di spiegare i concetti insieme ai dati è straordinario."</p><div class="testi-author"><div class="testi-avatar">SB</div><div><div class="testi-name">Sara B.</div><div class="testi-role">Professionista, Roma</div></div></div></div>
+      <div class="testi-card reveal rd3"><div class="testi-stars">★★★★★</div><p class="testi-text">"Il corso mi ha dato una struttura che non avevo. Ora so come leggere un bilancio, come diversificare e soprattutto perché certe scelte hanno senso."</p><div class="testi-author"><div class="testi-avatar">LR</div><div><div class="testi-name">Luca R.</div><div class="testi-role">Manager, Torino</div></div></div></div>
+    </div>
+    <p class="disclaimer-strip reveal">Le testimonianze sono di persone reali. I risultati possono variare. Vi Consulting Finance fornisce educazione e informazione finanziaria, non consulenza personalizzata.</p>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<div id="disclaimer">
+  <div class="disclaimer-inner">
+    <div class="disc-icon">⚖️</div>
+    <p class="disc-text"><strong>Nota informativa:</strong> I contenuti pubblicati da Vi Consulting Finance hanno esclusivamente finalità educative e informative. Non costituiscono consulenza finanziaria personalizzata, sollecitazione all'investimento o raccomandazione di acquisto/vendita di strumenti finanziari ai sensi del D.Lgs. 58/1998 (TUF) e della Direttiva MiFID II. Vi Consulting Finance non è iscritta all'Albo dei Consulenti Finanziari (OCF). Ogni decisione di investimento è di esclusiva responsabilità dell'investitore. Investire comporta rischi, inclusa la possibile perdita del capitale investito.</p>
+  </div>
+</div>
+
+<!-- CONTATTI -->
+<section id="contatti">
+  <div class="contatti-inner">
+    <span class="sec-eyebrow reveal" style="display:block;text-align:center;">Contattaci</span>
+    <h2 class="sec-title reveal" style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:14px;text-align:center;">Vuoi saperne di più?</h2>
+    <p class="sec-sub reveal" style="margin:0 auto 44px;text-align:center;">Scrivici su WhatsApp per info sui corsi, sulla newsletter Pro o per qualsiasi domanda. Rispondiamo entro poche ore.</p>
+    <div style="display:flex;justify-content:center;margin-bottom:28px;" class="reveal">
+      <a href="https://wa.me/17144193670?text=Ciao%20Vi%20Consulting%20Finance!%20Vorrei%20maggiori%20informazioni." class="wa-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Scrivici su WhatsApp
+      </a>
+    </div>
+    <p class="cont-note reveal">Risposta garantita entro 24h</p>
+    <div class="cont-divider"></div>
+    <div class="cont-socials reveal">
+      <a href="https://www.instagram.com/viconsultingfinance?igsh=MTRva2N6ZTY3aWZ3bQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" class="cont-social-link">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        @viconsultingfinance
+      </a>
+      <a href="https://www.linkedin.com/company/vi-consulting-marketing-finance/?viewAsMember=true" target="_blank" rel="noopener" class="cont-social-link">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="/" class="f-logo"><span class="vi">Vi</span> Consulting Finance</a>
+      <p class="f-tagline">Educazione finanziaria, analisi di mercato e newsletter premium per chi vuole capire davvero il denaro.</p>
+      <div class="f-socials">
+        <a href="https://www.instagram.com/viconsultingfinance?igsh=MTRva2N6ZTY3aWZ3bQ%3D%3D&utm_source=qr" target="_blank" class="f-social" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://wa.me/17144193670" target="_blank" class="f-social" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        <a href="https://www.linkedin.com/company/vi-consulting-marketing-finance/?viewAsMember=true" target="_blank" class="f-social" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h5>Servizi</h5>
+      <ul>
+        <li><a href="#servizi">📊 Analisi Finanziaria</a></li>
+        <li><a href="#servizi">🔍 Insight Avanzati</a></li>
+        <li><a href="#premium">✉️ Newsletter Premium</a></li>
+        <li><a href="#servizi">🎓 Educazione Finanziaria</a></li>
+        <li><a href="#servizi">📚 Corsi</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h5>Risorse</h5>
+      <ul>
+        <li><a href="/blog" id="footer-blog-link">📰 Blog Gratuito</a></li>
+        <li><a href="#percorsi">🧭 Scegli il percorso</a></li>
+        <li><a href="#premium">🔒 Area Pro (in arrivo)</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h5>Azienda</h5>
+      <ul>
+        <li><span>📍 Roma, Italia</span></li>
+        <li><a href="https://wa.me/17144193670" target="_blank">💬 WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/viconsultingfinance?igsh=MTRva2N6ZTY3aWZ3bQ%3D%3D&utm_source=qr" target="_blank">📸 Instagram</a></li>
+        <li><span style="margin-top:8px;display:block;">P.IVA 02678320744</span></li>
+        <li style="margin-top:10px;"><a href="#" style="color:rgba(201,168,76,0.4);font-size:0.75rem;">← Vi Consulting Marketing</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="f-copy">© 2025 VI CONSULTING FINANCE · ALL RIGHTS RESERVED</span>
+    <span class="f-piva">P.IVA 02678320744 · Contenuti a solo scopo educativo</span>
+  </div>
+</footer>
+
+</div><!-- /app-content -->
+
+<script src="/js/blog-engine.js"></script>
+<script>
+// ---- NAV ----
+function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+
+// ---- SCROLL REVEAL ----
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// ---- NAV SHRINK ----
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.style.padding = window.scrollY > 60 ? '13px 60px' : '20px 60px';
+});
+
+// ---- EMAIL FORM ----
+function handleSubmit() {
+  const email = document.getElementById('emailInput').value;
+  const msg = document.getElementById('pr-msg');
+  if (!email || !email.includes('@')) {
+    msg.style.color = '#e05a5a';
+    msg.textContent = '⚠ Inserisci un indirizzo email valido.';
+    return;
+  }
+  msg.style.color = '#3bdb82';
+  msg.textContent = '✓ Iscritto! Ti avviseremo al lancio. Grazie.';
+  document.getElementById('emailInput').value = '';
+}
+
+// ---- MOBILE MENU CLOSE ----
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+});
+
+// ---- SPA BLOG NAVIGATION ----
+function navigateToBlog(e) {
+  if (e) e.preventDefault();
+  window.history.pushState({}, '', '/blog');
+  window.ViFin.initBlogPage();
+  document.getElementById('navLinks').classList.remove('open');
+}
+
+function navigateHome(e) {
+  if (e) e.preventDefault();
+  window.history.pushState({}, '', '/');
+  location.reload(); // ricarica la homepage con tutti i suoi elementi
+}
+
+// Intercept links to /blog
+document.addEventListener('click', e => {
+  const link = e.target.closest('a[href="/blog"]');
+  if (link) { navigateToBlog(e); }
+});
+
+// ---- INIT ----
+const path = window.location.pathname;
+if (path.startsWith('/blog/') && path.length > 6) {
+  const slug = path.replace('/blog/', '');
+  window.ViFin.showPostPage(slug);
+} else if (path === '/blog') {
+  window.ViFin.initBlogPage();
+} else {
+  window.ViFin.initHomepageBlog();
+}
+
+// Netlify Identity
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on('init', user => {
+    if (!user) window.netlifyIdentity.on('login', () => document.location.href = '/admin/');
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: it
+
+collections:
+  - name: "articoli"
+    label: "Articoli Blog"
+    label_singular: "Articolo"
+    folder: "blog/_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "blog/{{slug}}"
+    fields:
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Data di pubblicazione", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - label: "Categoria"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Educazione Finanziaria", value: "educazione" }
+          - { label: "Analisi Mercati", value: "analisi" }
+          - { label: "Investimenti", value: "investimenti" }
+          - { label: "Corsi", value: "corsi" }
+          - { label: "Macro & Economia", value: "macro" }
+      - label: "Accesso"
+        name: "access"
+        widget: "select"
+        default: "free"
+        options:
+          - { label: "Gratuito", value: "free" }
+          - { label: "Solo Pro", value: "pro" }
+      - { label: "Immagine copertina (upload)", name: "cover_image", widget: "image", required: false }
+      - { label: "URL immagine esterna", name: "cover_url", widget: "string", required: false, hint: "Incolla un URL da Unsplash se non vuoi caricare un file" }
+      - { label: "Estratto (max 200 caratteri)", name: "excerpt", widget: "string" }
+      - { label: "Tempo di lettura (minuti)", name: "read_time", widget: "number", default: 5 }
+      - { label: "In evidenza in Homepage", name: "featured", widget: "boolean", default: false }
+      - { label: "Contenuto articolo", name: "body", widget: "markdown" }
